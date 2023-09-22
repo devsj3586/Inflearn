@@ -14,6 +14,7 @@ import spring.core.order.OrderServiceImpl;
 @Configuration
 public class AppConfig {
     /**
+     * 스프링 사용전 - > 스프링 사용후엔 @Configuration + @Bean 으로 등록
      * 실제 동작에 필요한 구현 객체를 생성
      * AppConfig는 생성한 객체 인스턴스의 참조를 생성자를 통해서 주입해준다
      */
