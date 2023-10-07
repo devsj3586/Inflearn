@@ -31,10 +31,6 @@ public class SingletonTest {
 
     }
 
-    /*
-      싱글톤 컨테이너
-      스프링 컨테이너는 싱글폰 패던의 문제점을 해결 하면서 객체(1갸먼 생성)를 관리한다.
-     */
     @Test
     @DisplayName("싱글톤 패턴을 적용한 객체 사용")
     void singletonServiceTest() {
@@ -47,6 +43,10 @@ public class SingletonTest {
         assertThat(singletonService1).isSameAs(singletonService2);
     }
 
+    /*
+      싱글톤 컨테이너
+      스프링 컨테이너는 싱글폰 패던의 문제점을 해결 하면서 객체(1갸먼 생성)를 관리한다.
+     */
     @Test
     @DisplayName("스프링 컨테이너와 싱글톤")
     void springContainer() {
