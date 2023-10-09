@@ -18,21 +18,26 @@ public class AppConfig {
      * 실제 동작에 필요한 구현 객체를 생성
      * AppConfig는 생성한 객체 인스턴스의 참조를 생성자를 통해서 주입해준다
      */
+
+    // @Bean memberService -> new MemoryMemberRepository()
+    // @Bean orderService -> new MemoryMemberRepository() // 2번 호출 싱글톤이 깨지는 것처럼 보이지만, 싱글톤을 보장해준다.
     @Bean
     public MemberService memberService() {
-        return new MemberServiceImpl(MemberRepository());
+        System.out.println("call AppConfig.memberService");
+        return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
-    public MemberRepository MemberRepository() {
+    public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
-        return new OrderServiceImpl(MemberRepository(), discountPolicy());
+        System.out.println("call AppConfig.orderService");
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
-
     @Bean
     public DiscountPolicy discountPolicy() {
 //        return new FixDiscountPolicy();
