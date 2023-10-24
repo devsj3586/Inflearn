@@ -8,7 +8,7 @@ import spring.core.member.Member;
 import spring.core.member.MemberRepository;
 
 @Component
-@RequiredArgsConstructor // 생성자를 만들어줌
+@RequiredArgsConstructor // final이 붙은 필드를 모아서 생성자를 생성
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
